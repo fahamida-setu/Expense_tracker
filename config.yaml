@@ -1,0 +1,25 @@
+# authendication credintials
+credentials:
+  usernames:
+    setu:
+      email: fahmidasetu1250@gmail.com
+      name: Fahamida Binte Jahangir
+      password: $2b$12$HQssS8Fz/G2dnDzVd4Nynul1JR8ZiALY8FjwXxsPyzq8LK1y8b0lm # Placeholder for hashed password of 'abc'
+cookie:
+  expiry_days: 10
+  key: some_signature_key # Must be string
+  name: some_cookie_name
+preauthorized:
+  emails:
+    - fahmidasetu1250@gmail.com
+
+db:
+  host: "127.0.0.1"
+  user: "root"
+  passwd: "MyselfemeSetu1250"
+  database: "ExpenseDB"
+  auth_plugin: "mysql_native_password"
+  
+email_sender:
+  email: "fahmidasetu1250@gmail.com"
+  pass: 'MyselfemeSetu1250'
