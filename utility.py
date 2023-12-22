@@ -4,7 +4,7 @@ import streamlit_authenticator as stauth
 import yaml
 from yaml.loader import SafeLoader
 import base64
-print("Script started...")
+
 def login(func):
     with open('./config.yaml') as file:
         config = yaml.load(file, Loader=SafeLoader)
@@ -16,11 +16,9 @@ def login(func):
         config['cookie']['expiry_days'],
         config['preauthorized']
     )
-    #hashed_passwords = stauth.Hasher(['cse123', 'def']).generate()
+   # hashed_passwords = stauth.Hasher(['cse123', 'def']).generate()
     #st.write(hashed_passwords)
-    
-   
-    
+
     authenticator.login('Sign-In', 'main')
 
     if st.session_state["authentication_status"] is False:
@@ -31,7 +29,7 @@ def login(func):
     if st.session_state["authentication_status"]:
         with st.sidebar:
             authenticator.logout('Sign Out', 'main', key='unique_key')
-            st.write(f'Welcome *{st.session_state["name"]}* 🤗')
+            st.write(f'Welcome {st.session_state["name"]} 🤗')
 
     def execute(*args, **kwargs):
         func(*args, **kwargs)
@@ -60,4 +58,3 @@ def show_pdf(file_path):
         base64_pdf = base64.b64encode(f.read()).decode('utf-8')
     pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="800" height="800" type="application/pdf"></iframe>'
     st.markdown(pdf_display, unsafe_allow_html=True)
-print("Script completed...")

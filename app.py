@@ -5,8 +5,8 @@ from src.db_connection import get_database_connection
 from src.expense_op import save_expense
 
 # Load images
-logo_image = Image.open("company_logo.png")
-ai_image = Image.open("company_banner.png")
+logo_image = Image.open("img/company_logo.png")
+ai_image = Image.open("img/company_banner.png")
 
 st.set_page_config(page_title="Grow with Data", page_icon=logo_image, layout="wide")
 
@@ -81,7 +81,6 @@ def main():
 
         menu()
         
-    
 
 
 if __name__ == '__main__':

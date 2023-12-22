@@ -12,11 +12,11 @@ def save_expense(cursor, db):
         st.session_state.flag = 0
 
     with st.form(key='expense_submit_form', clear_on_submit=False, border=True):
-        expense_category = ['Shopping', 'Snacks', 'Mobile Recharge', 
+        expense_catagory = ['Shopping', 'Snacks', 'Mobile Recharge', 
                             'Online Course', 'Subscription', 'Others']
 
         expense_date = st.date_input('Expense Date*')
-        category = st.selectbox('Expense Category*', expense_category)
+        catagory = st.selectbox('Expense Catagory*', expense_catagory)
         amount = st.text_input('Amount*')
         notes = st.text_area('Notes')
         document_upload = st.file_uploader('Upload Document', 
@@ -24,7 +24,7 @@ def save_expense(cursor, db):
                                                  'jpg', 'png', 'jpeg'], 
                                             accept_multiple_files=True)
         if st.form_submit_button(label='Submit'):
-            if not(expense_date and category and amount):
+            if not(expense_date and catagory and amount):
                 st.error('Please fill all the * fields')
             else:
                 st.session_state.flag = 1
@@ -70,11 +70,11 @@ def save_expense(cursor, db):
                         st.success("File has been successfully saved.")
 
 
-                query = '''Insert into expense (expense_date, category, amount, 
+                query = '''Insert into expense (expense_date, catagory, amount, 
                                                 notes, documents) 
                         VALUES (%s, %s, %s, %s, %s)
                         '''
-                values = (expense_date, category, amount, notes, str(all_documents))
+                values = (expense_date, catagory, amount, notes, str(all_documents))
                 # st.write(query, values)
                 cursor.execute(query, values)
                 db.commit()
@@ -86,14 +86,14 @@ def save_expense(cursor, db):
     else:
         st.warning("Please fill up above form")
 
-    df = pd.read_sql('''SELECT id, expense_date, category, amount, notes, documents FROM expense''', con=db)
+    df = pd.read_sql('''SELECT id, expense_date, catagory, amount, notes, documents FROM expense''', con=db)
     
     # st.dataframe(df)
 
     # select the columns you want the users to see
     columns = [
                'expense_date',
-                'category',
+                'catagory',
                 'amount',
                 'notes']   
     # st.dataframe(df[columns])

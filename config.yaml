@@ -16,10 +16,10 @@ preauthorized:
 db:
   host: "127.0.0.1"
   user: "root"
-  passwd: "MyselfemeSetu1250"
-  database: "ExpenseDB"
+  passwd: "reset"
+  database: "Expenses"
   auth_plugin: "mysql_native_password"
-  
+
 email_sender:
   email: "fahmidasetu1250@gmail.com"
-  pass: 'MyselfemeSetu1250'
+  pass: 'abcdef'

@@ -15,10 +15,6 @@ def get_database_connection():
                       passwd = db_credintials['passwd'],
                       database = db_credintials['database'],
                       auth_plugin= db_credintials['auth_plugin'])
-    if connection.is_connected():
-                   print("Connected to the database!")
-    else:
-            print("Failed to connect to the database.")
     
     cursor = db.cursor()
 
